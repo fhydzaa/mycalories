@@ -24,5 +24,5 @@ def predict():
     #return render_template("index.html", prediction_text = "Your calories burn is {} Kilocalorie".format(str(prediction).strip("[]")))
     return render_template("index.html", prediction_text="Your calories burn is {:.2f} Kilocalorie".format(float(prediction)))
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+# if __name__ == "__main__":
+#     app.run(host="0.0.0.0", port=5000)
