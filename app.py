@@ -7,6 +7,7 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     return render_template('index.html')
+
 model = pickle.load(open("model_new.pkl","rb"))
 
 @app.route("/predict", methods=["POST"])
@@ -22,7 +23,7 @@ def predict():
     print(new_features)
     prediction = model.predict(new_features)
     #return render_template("index.html", prediction_text = "Your calories burn is {} Kilocalorie".format(str(prediction).strip("[]")))
-    return render_template("index.html", prediction_text="Your calories burn is {:.2f} Kilocalorie".format(float(prediction)))
+    return render_template("predict.html", prediction_text="{:.2f}".format(float(prediction)))
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
