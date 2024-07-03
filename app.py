@@ -8,7 +8,7 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
-model = pickle.load(open("model_new.pkl","rb"))
+model = pickle.load(open("model_mlp.pkl","rb"))
 
 @app.route("/predict", methods=["POST"])
 def predict():
@@ -26,4 +26,4 @@ def predict():
     return render_template("predict.html", prediction_text="{:.2f}".format(float(prediction)))
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(debug=True)
